@@ -1,0 +1,9 @@
+C:\Users\Hugo\documents\visual studio 2015\Projects\CustomControls111BTEC\CustomControls111BTEC\bin\Debug\CustomControls111BTEC.dll
+C:\Users\Hugo\documents\visual studio 2015\Projects\CustomControls111BTEC\CustomControls111BTEC\bin\Debug\CustomControls111BTEC.pdb
+C:\Users\Hugo\documents\visual studio 2015\Projects\CustomControls111BTEC\CustomControls111BTEC\bin\Debug\Bunifu_UI_v1.52.dll
+C:\Users\Hugo\documents\visual studio 2015\Projects\CustomControls111BTEC\CustomControls111BTEC\obj\Debug\CustomControls111BTEC.csprojResolveAssemblyReference.cache
+C:\Users\Hugo\documents\visual studio 2015\Projects\CustomControls111BTEC\CustomControls111BTEC\obj\Debug\CustomControls111BTEC._111DatetimePicker.resources
+C:\Users\Hugo\documents\visual studio 2015\Projects\CustomControls111BTEC\CustomControls111BTEC\obj\Debug\CustomControls111BTEC.Properties.Resources.resources
+C:\Users\Hugo\documents\visual studio 2015\Projects\CustomControls111BTEC\CustomControls111BTEC\obj\Debug\CustomControls111BTEC.csproj.GenerateResource.Cache
+C:\Users\Hugo\documents\visual studio 2015\Projects\CustomControls111BTEC\CustomControls111BTEC\obj\Debug\CustomControls111BTEC.dll
+C:\Users\Hugo\documents\visual studio 2015\Projects\CustomControls111BTEC\CustomControls111BTEC\obj\Debug\CustomControls111BTEC.pdb

@@ -1,0 +1,7 @@
+C:\Users\Hugo\documents\visual studio 2015\Projects\TimeLine\TimeLine\bin\Debug\TimeLine.dll
+C:\Users\Hugo\documents\visual studio 2015\Projects\TimeLine\TimeLine\bin\Debug\TimeLine.pdb
+C:\Users\Hugo\documents\visual studio 2015\Projects\TimeLine\TimeLine\bin\Debug\Bunifu_UI_v1.52.dll
+C:\Users\Hugo\documents\visual studio 2015\Projects\TimeLine\TimeLine\obj\Debug\TimeLine.TimeLine.resources
+C:\Users\Hugo\documents\visual studio 2015\Projects\TimeLine\TimeLine\obj\Debug\TimeLine.csproj.GenerateResource.Cache
+C:\Users\Hugo\documents\visual studio 2015\Projects\TimeLine\TimeLine\obj\Debug\TimeLine.dll
+C:\Users\Hugo\documents\visual studio 2015\Projects\TimeLine\TimeLine\obj\Debug\TimeLine.pdb
