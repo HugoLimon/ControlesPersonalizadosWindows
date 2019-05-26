@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TimeLine));
             this.panelTrasero = new System.Windows.Forms.TableLayoutPanel();
             this.panelColumns = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
@@ -47,6 +50,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
+            this.bunifuTransition1 = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.panelTrasero.SuspendLayout();
             this.panelColumns.SuspendLayout();
             this.PanelRows.SuspendLayout();
@@ -59,6 +63,7 @@
             this.panelTrasero.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.panelTrasero.Controls.Add(this.panelColumns, 0, 0);
             this.panelTrasero.Controls.Add(this.PanelRows, 0, 1);
+            this.bunifuTransition1.SetDecoration(this.panelTrasero, BunifuAnimatorNS.DecorationType.None);
             this.panelTrasero.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelTrasero.Location = new System.Drawing.Point(0, 0);
             this.panelTrasero.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
@@ -94,6 +99,7 @@
             this.panelColumns.Controls.Add(this.label6, 7, 0);
             this.panelColumns.Controls.Add(this.label5, 6, 0);
             this.panelColumns.Controls.Add(this.label10, 5, 0);
+            this.bunifuTransition1.SetDecoration(this.panelColumns, BunifuAnimatorNS.DecorationType.None);
             this.panelColumns.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelColumns.Location = new System.Drawing.Point(3, 3);
             this.panelColumns.Name = "panelColumns";
@@ -105,6 +111,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.label4, BunifuAnimatorNS.DecorationType.None);
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Location = new System.Drawing.Point(324, 0);
             this.label4.Name = "label4";
@@ -116,6 +123,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.label3, BunifuAnimatorNS.DecorationType.None);
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Location = new System.Drawing.Point(233, 0);
             this.label3.Name = "label3";
@@ -127,6 +135,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.label2, BunifuAnimatorNS.DecorationType.None);
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Location = new System.Drawing.Point(142, 0);
             this.label2.Name = "label2";
@@ -138,6 +147,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.label1, BunifuAnimatorNS.DecorationType.None);
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Location = new System.Drawing.Point(51, 0);
             this.label1.Name = "label1";
@@ -149,6 +159,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.label9, BunifuAnimatorNS.DecorationType.None);
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.Location = new System.Drawing.Point(870, 0);
             this.label9.Name = "label9";
@@ -160,6 +171,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.label8, BunifuAnimatorNS.DecorationType.None);
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Location = new System.Drawing.Point(779, 0);
             this.label8.Name = "label8";
@@ -171,6 +183,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.label7, BunifuAnimatorNS.DecorationType.None);
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Location = new System.Drawing.Point(688, 0);
             this.label7.Name = "label7";
@@ -182,6 +195,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Location = new System.Drawing.Point(597, 0);
             this.label6.Name = "label6";
@@ -193,6 +207,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.label5, BunifuAnimatorNS.DecorationType.None);
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Location = new System.Drawing.Point(506, 0);
             this.label5.Name = "label5";
@@ -204,6 +219,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.label10, BunifuAnimatorNS.DecorationType.None);
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.Location = new System.Drawing.Point(415, 0);
             this.label10.Name = "label10";
@@ -224,6 +240,7 @@
             this.PanelRows.Controls.Add(this.label13, 0, 1);
             this.PanelRows.Controls.Add(this.panel1, 1, 0);
             this.PanelRows.Controls.Add(this.label11, 0, 0);
+            this.bunifuTransition1.SetDecoration(this.PanelRows, BunifuAnimatorNS.DecorationType.None);
             this.PanelRows.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelRows.Location = new System.Drawing.Point(0, 36);
             this.PanelRows.Margin = new System.Windows.Forms.Padding(0);
@@ -238,6 +255,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Aqua;
+            this.bunifuTransition1.SetDecoration(this.panel3, BunifuAnimatorNS.DecorationType.None);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(51, 297);
             this.panel3.Name = "panel3";
@@ -248,6 +266,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Aqua;
+            this.bunifuTransition1.SetDecoration(this.panel2, BunifuAnimatorNS.DecorationType.None);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(48, 147);
             this.panel2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
@@ -259,6 +278,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.label12, BunifuAnimatorNS.DecorationType.None);
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label12.Location = new System.Drawing.Point(3, 294);
             this.label12.Name = "label12";
@@ -271,6 +291,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.YellowGreen;
+            this.bunifuTransition1.SetDecoration(this.label13, BunifuAnimatorNS.DecorationType.None);
             this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label13.Location = new System.Drawing.Point(3, 147);
             this.label13.Name = "label13";
@@ -282,6 +303,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Aqua;
+            this.bunifuTransition1.SetDecoration(this.panel1, BunifuAnimatorNS.DecorationType.None);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(48, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
@@ -294,6 +316,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.YellowGreen;
+            this.bunifuTransition1.SetDecoration(this.label11, BunifuAnimatorNS.DecorationType.None);
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label11.Font = new System.Drawing.Font("Microsoft Tai Le", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(0, 0);
@@ -304,11 +327,34 @@
             this.label11.Text = "1";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // bunifuTransition1
+            // 
+            this.bunifuTransition1.AnimationType = BunifuAnimatorNS.AnimationType.Scale;
+            this.bunifuTransition1.Cursor = null;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 0;
+            animation1.Padding = new System.Windows.Forms.Padding(0);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 0F;
+            this.bunifuTransition1.DefaultAnimation = animation1;
+            this.bunifuTransition1.MaxAnimationTime = 1000;
+            // 
             // TimeLine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelTrasero);
+            this.bunifuTransition1.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.Name = "TimeLine";
             this.Size = new System.Drawing.Size(968, 479);
             this.Resize += new System.EventHandler(this.TimeLine_Resize);
@@ -342,5 +388,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label11;
+        private BunifuAnimatorNS.BunifuTransition bunifuTransition1;
     }
 }

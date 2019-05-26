@@ -15,11 +15,13 @@ namespace CustomControls111BTEC
         List<DateTime> lstDiasSeleccionados = new List<DateTime>();
         DateTime fechaCalendario = DateTime.Now;
         bool multiDateSelecter = true;
+        bool backToDay = false;
         Delegate clickBtnOK;
      
         public _111DatetimePicker()
         {
             InitializeComponent();
+            
             System.Globalization.DateTimeFormatInfo fechaFormat = new System.Globalization.DateTimeFormatInfo();
             lblMonthYear.Text = string.Format("{0} {1}", fechaFormat.GetMonthName(fechaCalendario.Month), fechaCalendario.Year);
             lblCurrentDate.Text = string.Format("{0}, {1} {2}", fechaCalendario.DayOfWeek.ToString().Substring(0, 3), fechaFormat.GetMonthName(fechaCalendario.Month).ToString().Substring(0, 3), fechaCalendario.Year);
@@ -73,7 +75,7 @@ namespace CustomControls111BTEC
             }
         }
         [Description("Permite seleccionar más de una fecha a la vez"), Category("Style")]
-        public bool multiDAteSelecter
+        public bool MultiDateSelecter
         {
             get { return multiDateSelecter; }
             set
@@ -106,6 +108,18 @@ namespace CustomControls111BTEC
 
                 panelHora.Visible = value;
                 
+            }
+        }
+        [Description("Valiable para seleccionar fechas anteriores al día actual"), Category("Data")]
+        public bool BackToDay
+        {
+            get { return backToDay; }
+            set
+            {
+
+                backToDay = value;
+                lstDiasSeleccionados.Clear();
+                inicializaCalendario();
             }
         }
 
@@ -166,12 +180,46 @@ namespace CustomControls111BTEC
             }
 
         }
+        public void limpiaCalendario()
+        {
+
+            lstDiasSeleccionados.Clear();
+            DateTime FechaIterada;
+            foreach (Control _c in tabDays.Controls)
+            {
+                FechaIterada = (DateTime)_c.Tag;
+                if (FechaIterada.ToShortDateString() == DateTime.Now.ToShortDateString())
+                {
+                    _c.BackColor = Color.FromArgb(200, 33, 150, 254);
+                    _c.ForeColor = Color.White;
+                }
+                else if (fechaCalendario.Month != FechaIterada.Month)
+                {
+                    _c.BackColor = Color.LightGray;
+                    _c.ForeColor = Color.White;
+                }
+                else if (DateTime.Now > FechaIterada)
+                {
+                    _c.BackColor = Color.LightGray;
+                    _c.ForeColor = Color.LightSlateGray;
+                }
+                else
+                {
+                    _c.ForeColor = Color.FromArgb(255, 80, 80, 80);
+                    _c.BackColor = Color.Transparent;
+                }
+            }
+            tabDays.Refresh();
+
+        }
         private void seleccionaDia(object obj, EventArgs e )
         {
+            if(!multiDateSelecter)
+                limpiaCalendario();
             Label diaSeleccionado = (Label)obj;
             DateTime tag = (DateTime)(diaSeleccionado.Tag);
             DateTime fechaActual = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
-            if (fechaActual<=tag)
+            if (backToDay||fechaActual<=tag)
             {
                 if (lstDiasSeleccionados.Contains(tag))
                 {
@@ -204,18 +252,15 @@ namespace CustomControls111BTEC
                         diaSeleccionado.BackColor = Color.FromArgb(255, 255, 167, 38);
                         diaSeleccionado.ForeColor = Color.FromArgb(255, 80, 80, 80);
                     }
-                    else if(lstDiasSeleccionados.Count==0)
+                    else
                     {
+                        
                         lstDiasSeleccionados.Add((DateTime)(diaSeleccionado.Tag));
                         diaSeleccionado.BackColor = Color.FromArgb(255, 255, 167, 38);
                         diaSeleccionado.ForeColor = Color.FromArgb(255, 80, 80, 80);
                     }
                 }
             }
-            
-            
-            
-            
         }
         private string obtenDiaDelaSemanaEspanol(int index)
         {
@@ -291,7 +336,7 @@ namespace CustomControls111BTEC
         }
         private void btnBackMonth_Click(object sender, EventArgs e)
         {
-            if(DateTime.Now<fechaCalendario)
+            if(DateTime.Now<fechaCalendario || backToDay)
             {
                 
                 fechaCalendario = fechaCalendario.AddMonths(-1);
@@ -310,6 +355,11 @@ namespace CustomControls111BTEC
         {
             lstDiasSeleccionados.Clear();
             inicializaCalendario();
+        }
+
+        private void btnBackMonth_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

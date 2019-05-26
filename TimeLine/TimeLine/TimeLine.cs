@@ -20,13 +20,10 @@ namespace TimeLine
         Padding marginRenglon = new Padding(0, 0, 0, 0);
         Padding paddingPanelRenglones = new Padding(0, 0, 0, 0);
         Padding marginHeaders = new Padding(0, 0, 0, 0);
-
         Font fontHeaders= new Font(FontFamily.GenericMonospace, 8.5F, FontStyle.Regular, GraphicsUnit.Pixel);
         Font fontColumnaReferencia = new Font(FontFamily.GenericMonospace, 8.5F,FontStyle.Regular, GraphicsUnit.Pixel);
-
         Color foreColorHeaders = Color.White;
         Color foreColorColReferencia = Color.White;
-
         int heigth = 0;
         int _cheight = 0;
         List<ControlTimeLine> lstControltimeLine = new List<ControlTimeLine>();
@@ -334,6 +331,28 @@ namespace TimeLine
             lstControltimeLine.Add(_control);
             _control.control.Click += ClickContrl;
         }
+        public void cleanAllTimeLines()
+        {
+            foreach (Control _c in PanelRows.Controls)
+            {
+                if (_c.Tag != null)
+                    if ((int)_c.Tag !=-1)
+                    {
+                        _c.Controls.Clear();
+                    }
+            }
+        }
+        public void cleanTimeLine(int i)
+        {
+            foreach (Control _c in PanelRows.Controls)
+            {
+                if (_c.Tag != null)
+                    if ((int)_c.Tag != i)
+                    {
+                        _c.Controls.Clear();
+                    }
+            }
+        }
         private KeyValuePair<int, int> CalculaPos(DateTime _horaInicio, int _duracion)
         {
             double _pixHora = (panelColumns.Width * 0.95) / (panelColumns.ColumnCount - 1);
@@ -348,7 +367,7 @@ namespace TimeLine
             int _duracion = Convert.ToInt32(_control.duracionMinutos);
             int _row = Convert.ToInt32(_control.row);
             KeyValuePair<int, int> _kvp = CalculaPos(new DateTime(1996, 01, 27, _control.horaInicio, _control.minutosInicio, 0), _duracion);
-            
+            _control.control.Visible=false;
             
 
             foreach (Control _c in PanelRows.Controls)
@@ -360,6 +379,7 @@ namespace TimeLine
                         _control.control.Width = _kvp.Value;
                         _control.control.Height =_c.Height- 6;
                         _control.control.Location = new Point(_kvp.Key, 3);
+                        bunifuTransition1.ShowSync(_control.control);
                     }
             }
 

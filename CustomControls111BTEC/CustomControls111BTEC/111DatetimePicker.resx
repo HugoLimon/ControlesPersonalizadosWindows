@@ -118,6 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnNextMonth.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABGdBTUEAALGPC/xhBQAAAJpJREFUWEft
+        1qEKAkEUheHRRTQvLBh8HcFg9amMhoVt24wWi29hMlh8Dg36D+uA0SL3COeHDy6TTpzknHN/3BSz4Yyv
+        whEnTPJDZGPs8XwLHzVCjzJIZlQHqVE5yVE7eNQ3bSE3qsXnqAPCWuCGMuaOJUKaQ2rMFRJjGkiNuUBi
+        TA2ZMfnrcYbEmNIGD0iMKa2xGk7nnHM/KqUXNYlDcFZx+AYAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="btnBackMonth.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABGdBTUEAALGPC/xhBQAAAKlJREFUWEft
@@ -125,14 +133,6 @@
         9dFih5EdKKtjnm979CDJj3lgDUl+zB1hxtywgqRvY5aQ5MdcEWbMBXPI2qKOMRtIs9uwV/R5Q1NI86PO
         CDmqgTQ/6oSQo8aQ5kcdEW7UAbK/fa2Osg98YgcRWmDWPWZZlmU/VsoLvMxC9w5tLgEAAAAASUVORK5C
         YII=
-</value>
-  </data>
-  <data name="btnNextMonth.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABGdBTUEAALGPC/xhBQAAAJpJREFUWEft
-        1qEKAkEUheHRRTQvLBh8HcFg9amMhoVt24wWi29hMlh8Dg36D+uA0SL3COeHDy6TTpzknHN/3BSz4Yyv
-        whEnTPJDZGPs8XwLHzVCjzJIZlQHqVE5yVE7eNQ3bSE3qsXnqAPCWuCGMuaOJUKaQ2rMFRJjGkiNuUBi
-        TA2ZMfnrcYbEmNIGD0iMKa2xGk7nnHM/KqUXNYlDcFZx+AYAAAAASUVORK5CYII=
 </value>
   </data>
 </root>
