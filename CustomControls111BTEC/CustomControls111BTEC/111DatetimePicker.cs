@@ -32,7 +32,6 @@ namespace CustomControls111BTEC
         }
 
         #region Properties
-        Color HoverForeColorButtoms = Color.White;
         Color backColorMesh = Color.WhiteSmoke;
         Color backColorToday = Color.FromArgb(255, 33, 150, 254);
         Color foreColorToday = Color.WhiteSmoke;
@@ -44,6 +43,10 @@ namespace CustomControls111BTEC
         Color foreColorUnselected = Color.Gray;
         Color backColorDiferentMonth = Color.Transparent;
         Color foreColorDiferentMonth = Color.Gray;
+
+        Color foreColorActiveButtoms = Color.FromArgb (33, 150, 254);
+        Color foreColorHoverButtoms = Color.White;
+
 
         #region Colores de malla
         [Description("Color de fondo de malla de días"), Category("Style")]
@@ -118,6 +121,12 @@ namespace CustomControls111BTEC
         }
 
         #endregion
+        [Description("Cambia el color del texto de barra para cambiar de mes"), Category("Style")]
+        public Color ForeColorTextMonthYear
+        {
+            get { return lblMonthYear.ForeColor; }
+            set { lblMonthYear.ForeColor = value; }
+        }
         [Description("Cambia el color de la barra superior"), Category("Style")]
         public Color backGroundColorBar
         {
@@ -145,21 +154,21 @@ namespace CustomControls111BTEC
         [Description("Cambia el color de los botones inferiores"), Category("Style")]
         public Color ForeColorActiveBottomButtoms
         {
-            get { return btnOK.ForeColor; }
+            get { return foreColorActiveButtoms; }
             set
             {
-                btnOK.ForeColor = value;
-                btnCancel.ForeColor = value;
+                foreColorActiveButtoms = value;
+                btnCancel.ForeColor = foreColorActiveButtoms;
             }
         }
         [Description("Cambia el color de los botones inferiores, cuando el maouse esta sobre los botones"), Category("Style")]
         public Color ForeColorHoverBottomButtoms
         {
-            get { return HoverForeColorButtoms; }
+            get { return foreColorHoverButtoms; }
             set
             {
-                HoverForeColorButtoms = value;
-                HoverForeColorButtoms = value;
+                foreColorHoverButtoms = value;
+                
             }
         }
         [Description("Permite seleccionar más de una fecha a la vez"), Category("Style")]
@@ -214,6 +223,7 @@ namespace CustomControls111BTEC
         {
             get { return lstDiasSeleccionados; }
         }
+
         #endregion
 
         private void InicializaCalendario()
@@ -316,19 +326,19 @@ namespace CustomControls111BTEC
         
         private void BtnOK_MouseHover(object sender, EventArgs e)
         {
-            btnOK.ForeColor = HoverForeColorButtoms;
+            btnOK.ForeColor = foreColorHoverButtoms;
         }
         private void BtnOK_MouseLeave(object sender, EventArgs e)
         {
-            btnOK.ForeColor = Color.FromArgb(255 , 33, 150, 254);
+            btnOK.ForeColor = foreColorActiveButtoms;
         }
         private void BtnCancel_MouseHover(object sender, EventArgs e)
         {
-            btnCancel.ForeColor = HoverForeColorButtoms;
+            btnCancel.ForeColor = foreColorHoverButtoms;
         }
         private void BtnCancel_MouseLeave(object sender, EventArgs e)
         {
-            btnCancel.ForeColor = Color.FromArgb(255, 33, 150, 254);
+            btnCancel.ForeColor = foreColorActiveButtoms;
         }
 
         private void BtnNextMonth_Click(object sender, EventArgs e)

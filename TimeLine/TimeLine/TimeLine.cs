@@ -293,6 +293,7 @@ namespace TimeLine
                         _lbl.BackColor = Color.Transparent;
                         _lbl.Text = HoraInicial.AddHours(i).ToShortTimeString();
                         _lbl.Font = FontHeaders;
+                        _lbl.AutoSize = false;
                         HoraFinal = HoraInicial.AddHours(i);
                         panelColumns.Controls.Add(_lbl, i + 1, 0);
                     }
@@ -397,6 +398,7 @@ namespace TimeLine
             {
                 AgregaControl(_ct);
             }
+            this.Refresh();
         }
         private void ClickContrl(object obj, EventArgs e)
         {
