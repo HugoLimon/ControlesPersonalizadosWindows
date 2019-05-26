@@ -17,7 +17,10 @@ namespace CustomControls111BTEC
         bool multiDateSelecter = true;
         bool backToDay = false;
         Delegate clickBtnOK;
-     
+
+        
+        
+        
         public _111DatetimePicker()
         {
             InitializeComponent();
@@ -25,31 +28,116 @@ namespace CustomControls111BTEC
             System.Globalization.DateTimeFormatInfo fechaFormat = new System.Globalization.DateTimeFormatInfo();
             lblMonthYear.Text = string.Format("{0} {1}", fechaFormat.GetMonthName(fechaCalendario.Month), fechaCalendario.Year);
             lblCurrentDate.Text = string.Format("{0}, {1} {2}", fechaCalendario.DayOfWeek.ToString().Substring(0, 3), fechaFormat.GetMonthName(fechaCalendario.Month).ToString().Substring(0, 3), fechaCalendario.Year);
-            inicializaCalendario();
+            InicializaCalendario();
         }
 
         #region Properties
-        Color HoverColorButtoms = Color.White;
+        Color HoverForeColorButtoms = Color.White;
+        Color backColorMesh = Color.WhiteSmoke;
+        Color backColorToday = Color.FromArgb(255, 33, 150, 254);
+        Color foreColorToday = Color.WhiteSmoke;
+        Color backColorSelected = Color.FromArgb(255, 255, 167, 38);
+        Color foreColorSelected = Color.WhiteSmoke;
+        Color backColorPreviousDays = Color.LightGray;
+        Color foreColorPreviousDays = Color.WhiteSmoke;
+        Color backColorUnselected = Color.Transparent;
+        Color foreColorUnselected = Color.Gray;
+        Color backColorDiferentMonth = Color.Transparent;
+        Color foreColorDiferentMonth = Color.Gray;
+
+        #region Colores de malla
+        [Description("Color de fondo de malla de días"), Category("Style")]
+        public Color BackColorMesh
+        {
+            get { return backColorMesh; }
+            set
+            {
+                backColorMesh = value;
+                tabDays.BackColor = backColorMesh;
+            }
+        }
+        [Description("Cambia el color del fondo del día actual"), Category("Style")]
+        public Color BackColorToday
+        {
+            get { return backColorToday; }
+            set { backColorToday = value; }
+        }
+        [Description("Cambia el color de la letra del día actual"), Category("Style")]
+        public Color ForeColorToday
+        {
+            get { return foreColorToday; }
+            set { foreColorToday = value; }
+        }
+        [Description("Cambia el color de fondo del día seleccionado"), Category("Style")]
+        public Color BackColorSelected
+        {
+            get { return backColorSelected; }
+            set { backColorSelected = value; }
+        }
+        [Description("Cambia el color de la letra del día seleccionado"), Category("Style")]
+        public Color ForeColorSelected
+        {
+            get { return foreColorSelected; }
+            set { foreColorSelected = value; }
+        }
+        [Description("Cambia el color de fondo de día anteriores"), Category("Style")]
+        public Color BackColorPreviousDays
+        {
+            get { return backColorPreviousDays; }
+            set { backColorPreviousDays = value; }
+        }
+        [Description("Cambia el color de la letra de día anteriores"), Category("Style")]
+        public Color ForeColorPreviousDays
+        {
+            get { return foreColorPreviousDays; }
+            set { foreColorPreviousDays = value; }
+        }
+        [Description("Cambia el color de fondo del día no seleccionado"), Category("Style")]
+        public Color BackColorUnselected
+        {
+            get { return backColorUnselected; }
+            set { backColorUnselected = value; }
+        }
+        [Description("Cambia el color de la letra del día no seleccionado"), Category("Style")]
+        public Color ForeColorUnselected
+        {
+            get { return foreColorUnselected; }
+            set { foreColorUnselected = value; }
+        }
+        [Description("Cambia el color de fondo de día de otro mes"), Category("Style")]
+        public Color BackColorDiferentMonth
+        {
+            get { return backColorDiferentMonth; }
+            set { backColorDiferentMonth = value; }
+        }
+        [Description("Cambia el color de la letra del día de otro mes"), Category("Style")]
+        public Color ForeColorDiferentMonth
+        {
+            get { return foreColorDiferentMonth; }
+            set { foreColorDiferentMonth = value; }
+        }
+
+        #endregion
         [Description("Cambia el color de la barra superior"), Category("Style")]
         public Color backGroundColorBar
         {
             get { return panelBar.BackColor; }
             set { panelBar.BackColor = value; }
-        }
+        }        
         [Description("Cambia el color del título de barra superior"), Category("Style")]
-        public Color foreColorBar
+        public Color ForeColorBar
         {
             get { return lblCurrentDate.ForeColor; }
             set { lblCurrentDate.ForeColor = value; }
         }
         [Description("Cambia el color del año actual de barra superior"), Category("Style")]
-        public Color foreColorYearBar
+        public Color ForeColorYearBar
         {
             get { return lblYear.ForeColor; }
             set { lblYear.ForeColor = value; }
         }
         [Description("Cambia el color del borde"), Category("Style")]
-        public Color borderColor
+        public Color BorderColor
         {
             get { return this.BackColor; }
             set { this.BackColor = value; }
@@ -67,11 +155,11 @@ namespace CustomControls111BTEC
         [Description("Cambia el color de los botones inferiores, cuando el maouse esta sobre los botones"), Category("Style")]
         public Color ForeColorHoverBottomButtoms
         {
-            get { return HoverColorButtoms; }
+            get { return HoverForeColorButtoms; }
             set
             {
-                HoverColorButtoms = value;
-                HoverColorButtoms = value;
+                HoverForeColorButtoms = value;
+                HoverForeColorButtoms = value;
             }
         }
         [Description("Permite seleccionar más de una fecha a la vez"), Category("Style")]
@@ -84,7 +172,7 @@ namespace CustomControls111BTEC
             }
         }
         [Description("Agrega un evento al boton OK"), Category("Style")]
-        public EventHandler clickOK
+        public EventHandler ClickOK
         {
             set
             {
@@ -92,7 +180,7 @@ namespace CustomControls111BTEC
             }
         }
         [Description("Agrega un evento al boton de cancelar"), Category("Style")]
-        public EventHandler clickCancel
+        public EventHandler ClickCancel
         {
             set
             {
@@ -111,7 +199,7 @@ namespace CustomControls111BTEC
             }
         }
         [Description("Valiable para seleccionar fechas anteriores al día actual"), Category("Data")]
-        public bool BackToDay
+        public bool AllowPreviousDays
         {
             get { return backToDay; }
             set
@@ -119,17 +207,16 @@ namespace CustomControls111BTEC
 
                 backToDay = value;
                 lstDiasSeleccionados.Clear();
-                inicializaCalendario();
+                InicializaCalendario();
             }
         }
-
-        public List<DateTime> selectedDays
+        public List<DateTime> SelectedDays
         {
             get { return lstDiasSeleccionados; }
         }
         #endregion
 
-        private void inicializaCalendario()
+        private void InicializaCalendario()
         {
             tabDays.Controls.Clear();
             DateTime FechaActual = DateTime.Now;
@@ -143,35 +230,18 @@ namespace CustomControls111BTEC
             {
                 for(int j=0; j<7; j++) // Iteramos las columnas (Días de la semana)
                 {
-                    if(FechaIterada.DayOfWeek.ToString().Substring(0,2) == obtenDiaDelaSemanaEspanol(j) || FechaIterada.DayOfWeek.ToString().Substring(0, 2) == obtenDiaDelaSemanaIngles(j))
+                    if(FechaIterada.DayOfWeek.ToString().Substring(0,2) == ObtenDiaDelaSemanaEspanol(j) || FechaIterada.DayOfWeek.ToString().Substring(0, 2) == ObtenDiaDelaSemanaIngles(j))
                     {
                         DiaIterado = new Label();
                         DiaIterado.Tag = FechaIterada;
                         DiaIterado.TextAlign = ContentAlignment.MiddleCenter;
                         DiaIterado.Dock = DockStyle.Fill;
                         DiaIterado.ForeColor = Color.FromArgb(255, 80, 80, 80);
-                        DiaIterado.Margin = new Padding(0, 0, 0, 0);
-                        DiaIterado.Click += seleccionaDia;
+                        DiaIterado.Margin = new Padding(1, 1, 1, 1);
+                        DiaIterado.Click += SeleccionaDia;
                         DiaIterado.BackColor = Color.Transparent;
-                        if (lstDiasSeleccionados.Contains(FechaIterada))
-                        {
-                            DiaIterado.BackColor = Color.FromArgb(255, 255, 167, 38);
-                            DiaIterado.ForeColor = Color.White;
-                        }
-                        else if (FechaIterada.ToShortDateString() ==FechaActual.ToShortDateString() )
-                        {
-                            DiaIterado.BackColor = Color.FromArgb(200, 33,150,254);
-                            DiaIterado.ForeColor = Color.White;
-                        }else if(fechaCalendario.Month!=FechaIterada.Month)
-                        {
-                            DiaIterado.BackColor = Color.LightGray;
-                            DiaIterado.ForeColor = Color.White;
-                        }else if(FechaActual>FechaIterada)
-                        {
-                            DiaIterado.BackColor = Color.LightGray;
-                            DiaIterado.ForeColor = Color.LightSlateGray;
-                        }
-                         
+
+                        SetColorDays(DiaIterado);                     
                         DiaIterado.Text = FechaIterada.Day.ToString();
                         tabDays.Controls.Add(DiaIterado, j, i);
                         FechaIterada=FechaIterada.AddDays(1);
@@ -180,42 +250,22 @@ namespace CustomControls111BTEC
             }
 
         }
-        public void limpiaCalendario()
+        public void LimpiaCalendario()
         {
 
             lstDiasSeleccionados.Clear();
             DateTime FechaIterada;
             foreach (Control _c in tabDays.Controls)
             {
-                FechaIterada = (DateTime)_c.Tag;
-                if (FechaIterada.ToShortDateString() == DateTime.Now.ToShortDateString())
-                {
-                    _c.BackColor = Color.FromArgb(200, 33, 150, 254);
-                    _c.ForeColor = Color.White;
-                }
-                else if (fechaCalendario.Month != FechaIterada.Month)
-                {
-                    _c.BackColor = Color.LightGray;
-                    _c.ForeColor = Color.White;
-                }
-                else if (DateTime.Now > FechaIterada)
-                {
-                    _c.BackColor = Color.LightGray;
-                    _c.ForeColor = Color.LightSlateGray;
-                }
-                else
-                {
-                    _c.ForeColor = Color.FromArgb(255, 80, 80, 80);
-                    _c.BackColor = Color.Transparent;
-                }
+                SetColorDays(_c);                
             }
             tabDays.Refresh();
 
         }
-        private void seleccionaDia(object obj, EventArgs e )
+        private void SeleccionaDia(object obj, EventArgs e )
         {
             if(!multiDateSelecter)
-                limpiaCalendario();
+                LimpiaCalendario();
             Label diaSeleccionado = (Label)obj;
             DateTime tag = (DateTime)(diaSeleccionado.Tag);
             DateTime fechaActual = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
@@ -224,45 +274,94 @@ namespace CustomControls111BTEC
                 if (lstDiasSeleccionados.Contains(tag))
                 {
                     lstDiasSeleccionados.Remove(tag);
-                    if(DateTime.Now.Day == tag.Day)
-                    {
-                        diaSeleccionado.BackColor = Color.FromArgb(200, 33, 150, 254);
-                        diaSeleccionado.ForeColor = Color.White;
-                    }
-                    else
-                    {
-                        if(fechaCalendario.Month<tag.Month)
-                        {
-                            diaSeleccionado.BackColor = Color.LightGray;
-                            diaSeleccionado.ForeColor = Color.White;
-                        }
-                        else
-                        {
-                            diaSeleccionado.BackColor = Color.Transparent;
-                            diaSeleccionado.ForeColor = Color.FromArgb(255, 80, 80, 80);
-                        }
-                        
-                    }
+                    SetColorDays(diaSeleccionado);                  
                 }
                 else
                 {
-                    if(multiDateSelecter)
-                    {
-                        lstDiasSeleccionados.Add((DateTime)(diaSeleccionado.Tag));
-                        diaSeleccionado.BackColor = Color.FromArgb(255, 255, 167, 38);
-                        diaSeleccionado.ForeColor = Color.FromArgb(255, 80, 80, 80);
-                    }
-                    else
-                    {
-                        
-                        lstDiasSeleccionados.Add((DateTime)(diaSeleccionado.Tag));
-                        diaSeleccionado.BackColor = Color.FromArgb(255, 255, 167, 38);
-                        diaSeleccionado.ForeColor = Color.FromArgb(255, 80, 80, 80);
-                    }
+                    lstDiasSeleccionados.Add((DateTime)(diaSeleccionado.Tag));
                 }
+                SetColorDays(diaSeleccionado);
+            }
+        }       
+        private void SetColorDays(Control _dia)
+        {
+            DateTime _dateControl=(DateTime)_dia.Tag;
+            //dia seleccionado
+            if (lstDiasSeleccionados.Contains(_dateControl))
+            {
+                _dia.BackColor = backColorSelected;
+                _dia.ForeColor = foreColorSelected;
+            } //Día actual 
+            else if (_dateControl.ToShortDateString() == DateTime.Now.ToShortDateString())
+            {
+                _dia.BackColor = backColorToday;
+                _dia.ForeColor = foreColorToday;
+            } //Día diferente al mes actual
+            else if (fechaCalendario.Month != _dateControl.Month)
+            {
+                _dia.BackColor = backColorDiferentMonth;
+                _dia.ForeColor = foreColorDiferentMonth;
+            }//Día del mes actual y anterior a la fecha del día actual
+            else if (_dateControl< DateTime.Now)
+            {
+                _dia.BackColor = backColorPreviousDays;
+                _dia.ForeColor = foreColorPreviousDays;
+            }
+            else //Sin selección
+            {
+                _dia.BackColor = backColorUnselected;
+                _dia.ForeColor = foreColorUnselected;
             }
         }
-        private string obtenDiaDelaSemanaEspanol(int index)
+        
+        private void BtnOK_MouseHover(object sender, EventArgs e)
+        {
+            btnOK.ForeColor = HoverForeColorButtoms;
+        }
+        private void BtnOK_MouseLeave(object sender, EventArgs e)
+        {
+            btnOK.ForeColor = Color.FromArgb(255 , 33, 150, 254);
+        }
+        private void BtnCancel_MouseHover(object sender, EventArgs e)
+        {
+            btnCancel.ForeColor = HoverForeColorButtoms;
+        }
+        private void BtnCancel_MouseLeave(object sender, EventArgs e)
+        {
+            btnCancel.ForeColor = Color.FromArgb(255, 33, 150, 254);
+        }
+
+        private void BtnNextMonth_Click(object sender, EventArgs e)
+        {
+            
+            fechaCalendario = fechaCalendario.AddMonths(1);
+            InicializaCalendario();
+            System.Globalization.DateTimeFormatInfo fechaFormat = new System.Globalization.DateTimeFormatInfo();
+            lblMonthYear.Text = string.Format("{0} {1}", fechaFormat.GetMonthName(fechaCalendario.Month), fechaCalendario.Year);
+        }
+        private void BtnBackMonth_Click(object sender, EventArgs e)
+        {
+            if(DateTime.Now<fechaCalendario || backToDay)
+            {
+                
+                fechaCalendario = fechaCalendario.AddMonths(-1);
+                InicializaCalendario();
+                System.Globalization.DateTimeFormatInfo fechaFormat = new System.Globalization.DateTimeFormatInfo();
+                lblMonthYear.Text = string.Format("{0} {1}", fechaFormat.GetMonthName(fechaCalendario.Month), fechaCalendario.Year);
+            }
+        }
+        private void LblCurrentDate_Click(object sender, EventArgs e)
+        {
+            fechaCalendario = DateTime.Now;
+            InicializaCalendario();
+        }
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            lstDiasSeleccionados.Clear();
+            InicializaCalendario();
+        }
+
+        private string ObtenDiaDelaSemanaEspanol(int index)
         {
             switch (index)
             {
@@ -286,7 +385,7 @@ namespace CustomControls111BTEC
                     return "Do";
             }
         }
-        private string obtenDiaDelaSemanaIngles(int index)
+        private string ObtenDiaDelaSemanaIngles(int index)
         {
             switch (index)
             {
@@ -310,56 +409,6 @@ namespace CustomControls111BTEC
                     return "Su";
             }
         }
-        private void btnOK_MouseHover(object sender, EventArgs e)
-        {
-            btnOK.ForeColor = HoverColorButtoms;
-        }
-        private void btnOK_MouseLeave(object sender, EventArgs e)
-        {
-            btnOK.ForeColor = Color.FromArgb(255 , 33, 150, 254);
-        }
-        private void btnCancel_MouseHover(object sender, EventArgs e)
-        {
-            btnCancel.ForeColor = HoverColorButtoms;
-        }
-        private void btnCancel_MouseLeave(object sender, EventArgs e)
-        {
-            btnCancel.ForeColor = Color.FromArgb(255, 33, 150, 254);
-        }
-        private void btnNextMonth_Click(object sender, EventArgs e)
-        {
-            
-            fechaCalendario = fechaCalendario.AddMonths(1);
-            inicializaCalendario();
-            System.Globalization.DateTimeFormatInfo fechaFormat = new System.Globalization.DateTimeFormatInfo();
-            lblMonthYear.Text = string.Format("{0} {1}", fechaFormat.GetMonthName(fechaCalendario.Month), fechaCalendario.Year);
-        }
-        private void btnBackMonth_Click(object sender, EventArgs e)
-        {
-            if(DateTime.Now<fechaCalendario || backToDay)
-            {
-                
-                fechaCalendario = fechaCalendario.AddMonths(-1);
-                inicializaCalendario();
-                System.Globalization.DateTimeFormatInfo fechaFormat = new System.Globalization.DateTimeFormatInfo();
-                lblMonthYear.Text = string.Format("{0} {1}", fechaFormat.GetMonthName(fechaCalendario.Month), fechaCalendario.Year);
-            }
-        }
-        private void lblCurrentDate_Click(object sender, EventArgs e)
-        {
-            fechaCalendario = DateTime.Now;
-            inicializaCalendario();
-        }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            lstDiasSeleccionados.Clear();
-            inicializaCalendario();
-        }
-
-        private void btnBackMonth_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

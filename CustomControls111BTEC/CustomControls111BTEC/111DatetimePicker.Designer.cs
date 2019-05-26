@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(_111DatetimePicker));
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnOK = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Label();
@@ -44,7 +44,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutMonthBackNext = new System.Windows.Forms.TableLayoutPanel();
             this.btnNextMonth = new System.Windows.Forms.Panel();
             this.btnBackMonth = new System.Windows.Forms.Panel();
             this.lblMonthYear = new System.Windows.Forms.Label();
@@ -54,44 +54,45 @@
             this.hourPick = new System.Windows.Forms.NumericUpDown();
             this.minutesPick = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelBar.SuspendLayout();
             this.panelDays.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutMonthBackNext.SuspendLayout();
             this.panelHora.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hourPick)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minutesPick)).BeginInit();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tableLayoutPrincipal
             // 
-            this.tableLayoutPanel1.AutoSize = true;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.panelBar, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panelDays, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tabDays, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.panelHora, 0, 4);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.89189F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.13513F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.277027F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.22973F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.966216F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.68243F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(206, 296);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPrincipal.AutoSize = true;
+            this.tableLayoutPrincipal.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPrincipal.ColumnCount = 1;
+            this.tableLayoutPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPrincipal.Controls.Add(this.panel1, 0, 5);
+            this.tableLayoutPrincipal.Controls.Add(this.panelBar, 0, 0);
+            this.tableLayoutPrincipal.Controls.Add(this.panelDays, 0, 2);
+            this.tableLayoutPrincipal.Controls.Add(this.tableLayoutMonthBackNext, 0, 1);
+            this.tableLayoutPrincipal.Controls.Add(this.tabDays, 0, 3);
+            this.tableLayoutPrincipal.Controls.Add(this.panelHora, 0, 4);
+            this.tableLayoutPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPrincipal.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPrincipal.Name = "tableLayoutPrincipal";
+            this.tableLayoutPrincipal.RowCount = 6;
+            this.tableLayoutPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.89189F));
+            this.tableLayoutPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.13513F));
+            this.tableLayoutPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.277027F));
+            this.tableLayoutPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.22973F));
+            this.tableLayoutPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.966216F));
+            this.tableLayoutPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.68243F));
+            this.tableLayoutPrincipal.Size = new System.Drawing.Size(206, 296);
+            this.tableLayoutPrincipal.TabIndex = 0;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.btnOK);
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -113,8 +114,8 @@
             this.btnOK.TabIndex = 0;
             this.btnOK.Text = "OK";
             this.btnOK.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnOK.MouseLeave += new System.EventHandler(this.btnOK_MouseLeave);
-            this.btnOK.MouseHover += new System.EventHandler(this.btnOK_MouseHover);
+            this.btnOK.MouseLeave += new System.EventHandler(this.BtnOK_MouseLeave);
+            this.btnOK.MouseHover += new System.EventHandler(this.BtnOK_MouseHover);
             // 
             // btnCancel
             // 
@@ -128,9 +129,9 @@
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "CANCELAR";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            this.btnCancel.MouseLeave += new System.EventHandler(this.btnCancel_MouseLeave);
-            this.btnCancel.MouseHover += new System.EventHandler(this.btnCancel_MouseHover);
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            this.btnCancel.MouseLeave += new System.EventHandler(this.BtnCancel_MouseLeave);
+            this.btnCancel.MouseHover += new System.EventHandler(this.BtnCancel_MouseHover);
             // 
             // panelBar
             // 
@@ -171,11 +172,11 @@
             this.lblCurrentDate.Size = new System.Drawing.Size(86, 17);
             this.lblCurrentDate.TabIndex = 1;
             this.lblCurrentDate.Text = "Mar, May 19";
-            this.lblCurrentDate.Click += new System.EventHandler(this.lblCurrentDate_Click);
+            this.lblCurrentDate.Click += new System.EventHandler(this.LblCurrentDate_Click);
             // 
             // panelDays
             // 
-            this.panelDays.BackColor = System.Drawing.SystemColors.Control;
+            this.panelDays.BackColor = System.Drawing.Color.Transparent;
             this.panelDays.ColumnCount = 7;
             this.panelDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.panelDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
@@ -291,29 +292,29 @@
             this.label3.Text = "LU";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel3
+            // tableLayoutMonthBackNext
             // 
-            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tableLayoutMonthBackNext.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.Controls.Add(this.btnNextMonth, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.btnBackMonth, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.lblMonthYear, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 49);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(206, 29);
-            this.tableLayoutPanel3.TabIndex = 2;
+            this.tableLayoutMonthBackNext.ColumnCount = 3;
+            this.tableLayoutMonthBackNext.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutMonthBackNext.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutMonthBackNext.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutMonthBackNext.Controls.Add(this.btnNextMonth, 2, 0);
+            this.tableLayoutMonthBackNext.Controls.Add(this.btnBackMonth, 0, 0);
+            this.tableLayoutMonthBackNext.Controls.Add(this.lblMonthYear, 1, 0);
+            this.tableLayoutMonthBackNext.Location = new System.Drawing.Point(0, 49);
+            this.tableLayoutMonthBackNext.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutMonthBackNext.Name = "tableLayoutMonthBackNext";
+            this.tableLayoutMonthBackNext.RowCount = 1;
+            this.tableLayoutMonthBackNext.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutMonthBackNext.Size = new System.Drawing.Size(206, 29);
+            this.tableLayoutMonthBackNext.TabIndex = 2;
             // 
             // btnNextMonth
             // 
-            this.btnNextMonth.BackColor = System.Drawing.SystemColors.Control;
+            this.btnNextMonth.BackColor = System.Drawing.Color.Transparent;
             this.btnNextMonth.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNextMonth.BackgroundImage")));
             this.btnNextMonth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnNextMonth.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -322,11 +323,11 @@
             this.btnNextMonth.Name = "btnNextMonth";
             this.btnNextMonth.Size = new System.Drawing.Size(22, 29);
             this.btnNextMonth.TabIndex = 0;
-            this.btnNextMonth.Click += new System.EventHandler(this.btnNextMonth_Click);
+            this.btnNextMonth.Click += new System.EventHandler(this.BtnNextMonth_Click);
             // 
             // btnBackMonth
             // 
-            this.btnBackMonth.BackColor = System.Drawing.SystemColors.Control;
+            this.btnBackMonth.BackColor = System.Drawing.Color.Transparent;
             this.btnBackMonth.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBackMonth.BackgroundImage")));
             this.btnBackMonth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnBackMonth.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -335,12 +336,11 @@
             this.btnBackMonth.Name = "btnBackMonth";
             this.btnBackMonth.Size = new System.Drawing.Size(20, 29);
             this.btnBackMonth.TabIndex = 3;
-            this.btnBackMonth.Click += new System.EventHandler(this.btnBackMonth_Click);
-            this.btnBackMonth.Paint += new System.Windows.Forms.PaintEventHandler(this.btnBackMonth_Paint);
+            this.btnBackMonth.Click += new System.EventHandler(this.BtnBackMonth_Click);
             // 
             // lblMonthYear
             // 
-            this.lblMonthYear.BackColor = System.Drawing.SystemColors.Control;
+            this.lblMonthYear.BackColor = System.Drawing.Color.Transparent;
             this.lblMonthYear.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblMonthYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMonthYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
@@ -354,7 +354,7 @@
             // 
             // tabDays
             // 
-            this.tabDays.BackColor = System.Drawing.SystemColors.Control;
+            this.tabDays.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabDays.ColumnCount = 7;
             this.tabDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tabDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
@@ -379,7 +379,7 @@
             // 
             // panelHora
             // 
-            this.panelHora.BackColor = System.Drawing.SystemColors.Control;
+            this.panelHora.BackColor = System.Drawing.Color.Transparent;
             this.panelHora.Controls.Add(this.label2);
             this.panelHora.Controls.Add(this.hourPick);
             this.panelHora.Controls.Add(this.minutesPick);
@@ -448,17 +448,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tableLayoutPrincipal);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "_111DatetimePicker";
             this.Size = new System.Drawing.Size(206, 296);
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPrincipal.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panelBar.ResumeLayout(false);
             this.panelBar.PerformLayout();
             this.panelDays.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutMonthBackNext.ResumeLayout(false);
             this.panelHora.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.hourPick)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minutesPick)).EndInit();
@@ -469,7 +469,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPrincipal;
         private System.Windows.Forms.Panel panelBar;
         private System.Windows.Forms.Label lblCurrentDate;
         private System.Windows.Forms.Label lblYear;
@@ -481,7 +481,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutMonthBackNext;
         private System.Windows.Forms.Panel btnNextMonth;
         private System.Windows.Forms.Label lblMonthYear;
         private System.Windows.Forms.TableLayoutPanel tabDays;
