@@ -319,16 +319,40 @@ namespace TimeLine
                 }
             }
         }
+        [Description("Fija el intervalo de la transición de los controles sobre el time line"), Category("Data")]
+        public int Interval
+        {
+            get { return bunifuTransition1.Interval; }
+            set
+            {
+                bunifuTransition1.Interval = value;
+            }
+        }
+        [Description("Fija el timeStep de la transición de los controles sobre el time line"), Category("Data")]
+        public float Timestep
+        {
+            get { return bunifuTransition1.TimeStep; }
+            set
+            {
+                bunifuTransition1.TimeStep = value;
+            }
+        }
+        [Description("Fija el MaxAnimationTime de la transición de los controles sobre el time line"), Category("Data")]
+        public int MaxAnimationTime
+        {
+            get { return bunifuTransition1.MaxAnimationTime; }
+            set
+            {
+                bunifuTransition1.MaxAnimationTime = value;
+            }
+        }
 
 
         //Data
         [Description("Agrega el control sobre la linea del tiempo, este contrl se transformará automaticamente"), Category("Data")]
         public void AddControl(ControlTimeLine _control)
         {
-            if (HoraInicial.Hour<=_control.horaInicio && HoraFinal.Hour>=_control.horaInicio)
-            {
-                AgregaControl(_control);
-            } 
+            AgregaControl(_control);         
             lstControltimeLine.Add(_control);
             _control.control.Click += ClickContrl;
         }
@@ -380,7 +404,8 @@ namespace TimeLine
                         _control.control.Width = _kvp.Value;
                         _control.control.Height =_c.Height- 6;
                         _control.control.Location = new Point(_kvp.Key, 3);
-                        bunifuTransition1.ShowSync(_control.control);
+                        _control.control.Visible = true;
+                        //bunifuTransition1.Show(_control.control);
                     }
             }
 
@@ -403,6 +428,27 @@ namespace TimeLine
         private void ClickContrl(object obj, EventArgs e)
         {
             //PanelRows.BackColor = Color.Red;
+        }
+        public void Corrimiento()
+        {
+            foreach(ControlTimeLine _ct in lstControltimeLine)
+            {
+                KeyValuePair<int, int> _kvp = CalculaPos(new DateTime(1996, 01, 27, _ct.horaInicio, _ct.minutosInicio, 0), Convert.ToInt32(_ct.duracionMinutos));
+                _ct.control.Visible = false;
+
+                foreach (Control _c in PanelRows.Controls)
+                {
+                    if (_c.Tag != null)
+                        if ((int)_c.Tag == _ct.row)
+                        {
+                            
+                            _ct.control.Width = _kvp.Value;
+                            _ct.control.Height = _c.Height - 6;
+                            _ct.control.Location = new Point(_kvp.Key, 3);
+                            _ct.control.Visible = true;
+                        }
+                }
+            }
         }
 
     }

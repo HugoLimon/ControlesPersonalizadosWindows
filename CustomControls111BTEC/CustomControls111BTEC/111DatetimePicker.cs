@@ -159,6 +159,7 @@ namespace CustomControls111BTEC
             {
                 foreColorActiveButtoms = value;
                 btnCancel.ForeColor = foreColorActiveButtoms;
+                btnOK.ForeColor = ForeColorActiveBottomButtoms;
             }
         }
         [Description("Cambia el color de los botones inferiores, cuando el maouse esta sobre los botones"), Category("Style")]

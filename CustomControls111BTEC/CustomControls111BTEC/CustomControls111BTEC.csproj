@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="111ComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="111ComboBox.Designer.cs">
+      <DependentUpon>111ComboBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="111DatetimePicker.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -61,6 +67,9 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="111ComboBox.resx">
+      <DependentUpon>111ComboBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="111DatetimePicker.resx">
       <DependentUpon>111DatetimePicker.cs</DependentUpon>
     </EmbeddedResource>
