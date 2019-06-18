@@ -17,8 +17,10 @@ namespace _111ticketer
         StringBuilder Subtitulos= new StringBuilder();*/
         List<KeyValuePair<int, string>> lstContenido = new List<KeyValuePair<int, string>>(); //la clave corresponde al tipo de texto 0 para titulos, 1 Subtitulos, 2 contenido, 3 pie de página  
         Image imgEncabezado = null;
+        Image imgMarcaAgua = null;
         //maximo de caracteres que acepta la kimpresora
         int cortar; // la variable cortar cortará la cadena cuando rebace el maxioa
+        int maxCarFont20 = 13;
         int maxCarFont15 = 23;
         int maxCarFont12 = 28;
         int maxCarFont10 = 34;
@@ -272,9 +274,13 @@ namespace _111ticketer
                 case 2:
                     maxCar = maxCarFont10;
                     break;
+                case 4:
+                    maxCar = maxCarFont20;
+                    break;
                 default:
                     maxCar = maxCarFont8;
                     break;
+               
             }
             //si la longitud del texto es mayoar al nuemro maximo de caracteres, realizar el sig procedimiento
             if (texto.Length > maxCar)
@@ -548,6 +554,10 @@ namespace _111ticketer
         {
             imgEncabezado = _img;
         }
+        public void agregaMarcaAgua(Image _img)
+        {
+            imgMarcaAgua = _img;
+        }
 
         //metodos para enviar secuencia de escape a la impresora
         //para cortar ticket
@@ -597,18 +607,17 @@ namespace _111ticketer
                 printDocument.Dispose();
             }
         }
-
         private void imprimeTitulo(PrintPageEventArgs e, string texto, float posY)
         {
             var printContent = texto;
-            var printFont = new Font("Courier New", 15, System.Drawing.FontStyle.Regular);
+            var printFont = new Font("Courier New", 15, System.Drawing.FontStyle.Bold);
             var printColor = System.Drawing.Brushes.Black;
             e.Graphics.DrawString(printContent, printFont, printColor, 0f, posY);
         }
         private void imprimeSubtitulo(PrintPageEventArgs e, string texto, float posY)
         {
             var printContent = texto;
-            var printFont = new Font("Courier New", 12, System.Drawing.FontStyle.Regular);
+            var printFont = new Font("Courier New", 12, System.Drawing.FontStyle.Bold);
             var printColor = System.Drawing.Brushes.Black;
 
             e.Graphics.DrawString(printContent, printFont, printColor, 0f, posY);
@@ -616,29 +625,38 @@ namespace _111ticketer
         private void imprimeContenido(PrintPageEventArgs e, string texto, float posY)
         {
             var printContent = texto;
-            var printFont = new Font("Courier New", 10, System.Drawing.FontStyle.Regular);
+            var printFont = new Font("Courier New", 10, System.Drawing.FontStyle.Bold);
             var printColor = System.Drawing.Brushes.Black;
             e.Graphics.DrawString(printContent, printFont, printColor, 0f, posY);
         }
         private void imprimePieDePagina(PrintPageEventArgs e, string texto, float posY)
         {
             var printContent = texto;
-            var printFont = new Font("Courier New", 8, System.Drawing.FontStyle.Regular);
+            var printFont = new Font("Courier New", 8, System.Drawing.FontStyle.Bold);
             var printColor = System.Drawing.Brushes.Black;
             e.Graphics.DrawString(printContent, printFont, printColor, 0f, posY);
         }
-
+        private void imprimeTextoEnorme(PrintPageEventArgs e, string texto, float posY)
+        {
+            var printContent = texto;
+            var printFont = new Font("Courier New", 25, System.Drawing.FontStyle.Bold);
+            var printColor = System.Drawing.Brushes.Black;
+            e.Graphics.DrawString(printContent, printFont, printColor, 0f, posY);
+        }
         //creamos un documento que imprime de maenra personalizada una pagina
         private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
-
+            float posy = 140;
             if (imgEncabezado != null)
             {
-                RectangleF rImage = new RectangleF(90, 90, 90, 90);
-                e.Graphics.DrawImage(imgEncabezado, 0f, 0f, 200f, 90f);
+                e.Graphics.DrawImage(imgEncabezado, 75f, 0f, 150f, 150f);
             }
-
-            float posy = 100;
+            if(imgMarcaAgua!=null)
+            {
+                e.Graphics.DrawImage(imgMarcaAgua, 0f, 00f, 300f, 300f);
+                posy = 0;
+            }
+            
             foreach (KeyValuePair<int, string> _k in lstContenido)
             {
                 switch (_k.Key)
@@ -655,9 +673,13 @@ namespace _111ticketer
                         imprimeContenido(e, _k.Value, posy);
                         posy += 16f;
                         break;
-                    default:
+                    case 3:
                         imprimePieDePagina(e, _k.Value, posy);
                         posy += 14f;
+                        break;
+                    default:
+                        imprimeTextoEnorme(e, _k.Value, posy);
+                        posy += 24f;
                         break;
                 }
             }
