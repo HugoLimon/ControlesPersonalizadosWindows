@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 
 namespace _111ticketer
 {
-    class Ticket
+    public class Ticket
     {
         //esta clase es para crear un ticket de venta
         /*StringBuilder linea = new StringBuilder();
@@ -17,16 +17,37 @@ namespace _111ticketer
         StringBuilder Subtitulos= new StringBuilder();*/
         List<KeyValuePair<int, string>> lstContenido = new List<KeyValuePair<int, string>>(); //la clave corresponde al tipo de texto 0 para titulos, 1 Subtitulos, 2 contenido, 3 pie de página  
         Image imgEncabezado = null;
-        public Ticket()
-        {
-
-        }
         //maximo de caracteres que acepta la kimpresora
         int cortar; // la variable cortar cortará la cadena cuando rebace el maxioa
         int maxCarFont15 = 23;
         int maxCarFont12 = 28;
         int maxCarFont10 = 34;
         int maxCarFont8 = 41;
+        public Ticket(int _maxTitleChars, int _maxSubtitleChars, int _maxContentChars, int _maxFootersChars)
+        {
+             maxCarFont15 = _maxTitleChars;
+             maxCarFont12 = _maxSubtitleChars;
+             maxCarFont10 = _maxContentChars;
+             maxCarFont8 = _maxFootersChars;
+        }
+        public Ticket(int _PaperSize)
+        {
+            if(_PaperSize==78)
+            {
+                 maxCarFont15 = 23;
+                 maxCarFont12 = 28;
+                 maxCarFont10 = 34;
+                 maxCarFont8 = 41;
+            }
+            else
+            {
+                 maxCarFont15 = 23;
+                 maxCarFont12 = 28;
+                 maxCarFont10 = 34;
+                 maxCarFont8 = 41;
+            }
+        }
+        
 
 
         // etse metodo dibujara lines guion
