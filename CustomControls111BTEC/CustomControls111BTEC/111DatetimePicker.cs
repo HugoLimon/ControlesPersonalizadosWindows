@@ -222,6 +222,7 @@ namespace CustomControls111BTEC
         }
         public List<DateTime> SelectedDays
         {
+            set { lstDiasSeleccionados = value; }
             get { return lstDiasSeleccionados; }
         }
 

@@ -30,7 +30,7 @@ namespace TimeLine
         public TimeLine()
         {
             InitializeComponent();
-            this.SetRows = 1;
+            this.SetRows = new List<string>();
             this.SetColumns = 12;
 
         }
@@ -65,7 +65,7 @@ namespace TimeLine
                 colorPistaTimeline = value;
                 foreach (Control _c in PanelRows.Controls)
                 {
-                    if ((int)_c.Tag == -1)
+                    if (Convert.ToInt32(_c.Tag) == -1)
                         _c.BackColor = colorPistaTimeline;
                 }
             }
@@ -81,14 +81,13 @@ namespace TimeLine
                 {
                     if (_c.Tag != null)
                     {
-                        if((int)_c.Tag != -1)
+                        if(Convert.ToInt32(_c.Tag) != -1)
                             _c.BackColor = colorPistaTimeline;
                     }
                         
                 }
             }
         }
-
         [Description("MArgen Renglones"), Category("Style")]
         public Padding marginRenglonT
         {
@@ -100,7 +99,7 @@ namespace TimeLine
                 {
                     if (_c.Tag != null)
                     {
-                        if ((int)_c.Tag != -1)
+                        if (Convert.ToInt32(_c.Tag) != -1)
                         { 
                             _c.Margin = marginRenglon;
                         }
@@ -120,7 +119,7 @@ namespace TimeLine
                 {
                     if (_c.Tag != null)
                     {
-                        if ((int)_c.Tag == -1)
+                        if (Convert.ToInt32(_c.Tag) == -1)
                             _c.Margin = marginLabelColumnaReferencia;
                     }
 
@@ -147,7 +146,6 @@ namespace TimeLine
                 panelColumns.Margin = value;
             }
         }
-
         [Description("Fuente texto headers"), Category("Style")]
         public Font FontHeaders
         {
@@ -174,7 +172,7 @@ namespace TimeLine
                 {
                     if (_c.Tag != null)
                     {
-                        if ((int)_c.Tag == -1)
+                        if (Convert.ToInt32(_c.Tag) == -1)
                             _c.Font = fontColumnaReferencia;
                     }
 
@@ -182,7 +180,6 @@ namespace TimeLine
 
             }
         }
-
         [Description("Color texto headers"), Category("Style")]
         public Color FroreColorHeaders
         {
@@ -209,7 +206,7 @@ namespace TimeLine
                 {
                     if (_c.Tag != null)
                     {
-                        if ((int)_c.Tag == -1)
+                        if (Convert.ToInt32(_c.Tag) == -1)
                             _c.ForeColor = foreColorColReferencia;
                     }
 
@@ -227,18 +224,17 @@ namespace TimeLine
             }
         }
         //SIZE
-        [Description("Fija la cantidad de renglones"), Category("Size")]
-        public int SetRows
+        [Description("Fija los renglones con su nombre"), Category("Size")]
+        public List<string> SetRows
         {
-            get { return PanelRows.RowCount; }
             set
             {
-                if (value > 0)
+                if (value.Count > 0)
                 {
                     PanelRows.RowStyles.Clear();
-                    PanelRows.RowCount = value;
+                    PanelRows.RowCount = value.Count;
                     PanelRows.Controls.Clear();
-                    for (int i = 0; i < value; i++)
+                    for (int i = 0; i < value.Count; i++)
                     {
 
                         PanelRows.RowStyles.Add(new RowStyle(SizeType.Percent, 50));
@@ -252,7 +248,7 @@ namespace TimeLine
 
                         Label _label = new Label();
                         _label.Font = fontColumnaReferencia;
-                        _label.Text = (i + 1).ToString();
+                        _label.Text = value[i];//(i + 1).ToString();
                         _label.Dock = DockStyle.Fill;
                         _label.TextAlign = ContentAlignment.MiddleCenter;
                         _label.BackColor = colorColumnaReferencia;
@@ -265,6 +261,11 @@ namespace TimeLine
                 }
 
             }
+        }
+        [Description("Fija los renglones con su nombre"), Category("Size")]
+        public int getRowsCount
+        {
+            get { return PanelRows.RowCount; }
         }
         [Description("Fija la cantidad de columnas. El valor maxímo es 24"), Category("Size")]
         public int SetColumns
@@ -352,6 +353,7 @@ namespace TimeLine
         [Description("Agrega el control sobre la linea del tiempo, este contrl se transformará automaticamente"), Category("Data")]
         public void AddControl(ControlTimeLine _control)
         {
+
             AgregaControl(_control);         
             lstControltimeLine.Add(_control);
             _control.control.Click += ClickContrl;
@@ -361,7 +363,7 @@ namespace TimeLine
             foreach (Control _c in PanelRows.Controls)
             {
                 if (_c.Tag != null)
-                    if ((int)_c.Tag !=-1)
+                    if (Convert.ToInt32(_c.Tag) !=-1)
                     {
                         _c.Controls.Clear();
                     }
@@ -372,7 +374,7 @@ namespace TimeLine
             foreach (Control _c in PanelRows.Controls)
             {
                 if (_c.Tag != null)
-                    if ((int)_c.Tag != i)
+                    if (Convert.ToInt32(_c.Tag) != i)
                     {
                         _c.Controls.Clear();
                     }
@@ -398,7 +400,7 @@ namespace TimeLine
             foreach (Control _c in PanelRows.Controls)
             {
                 if (_c.Tag != null)
-                    if ((int)_c.Tag == _control.row)
+                    if (Convert.ToInt32(_c.Tag.ToString()) == _control.row)
                     {
                         _c.Controls.Add(_control.control);
                         _control.control.Width = _kvp.Value;
@@ -439,7 +441,7 @@ namespace TimeLine
                 foreach (Control _c in PanelRows.Controls)
                 {
                     if (_c.Tag != null)
-                        if ((int)_c.Tag == _ct.row)
+                        if (Convert.ToInt32(_c.Tag) == _ct.row)
                         {
                             
                             _ct.control.Width = _kvp.Value;
