@@ -15,3 +15,13 @@ C:\Users\HugoLimon\Documents\Proyectos\ControlesPersonalizados111Btec\ControlesP
 C:\Users\HugoLimon\Documents\Proyectos\ControlesPersonalizados111Btec\ControlesPersonalizadosWindows\TimeLine\TimeLine\obj\Debug\TimeLine.dll
 C:\Users\HugoLimon\Documents\Proyectos\ControlesPersonalizados111Btec\ControlesPersonalizadosWindows\TimeLine\TimeLine\obj\Debug\TimeLine.pdb
 C:\Users\HugoLimon\Documents\Proyectos\ControlesPersonalizados111Btec\ControlesPersonalizadosWindows\TimeLine\TimeLine\obj\Debug\TimeLine.csprojAssemblyReference.cache
+C:\Proyectos\ControlesPersonalizados111Btec\ControlesPersonalizadosWindows\TimeLine\TimeLine\bin\Debug\TimeLine.dll
+C:\Proyectos\ControlesPersonalizados111Btec\ControlesPersonalizadosWindows\TimeLine\TimeLine\bin\Debug\TimeLine.pdb
+C:\Proyectos\ControlesPersonalizados111Btec\ControlesPersonalizadosWindows\TimeLine\TimeLine\bin\Debug\Bunifu_UI_v1.52.dll
+C:\Proyectos\ControlesPersonalizados111Btec\ControlesPersonalizadosWindows\TimeLine\TimeLine\obj\Debug\TimeLine.csprojAssemblyReference.cache
+C:\Proyectos\ControlesPersonalizados111Btec\ControlesPersonalizadosWindows\TimeLine\TimeLine\obj\Debug\TimeLine.TimeLine.resources
+C:\Proyectos\ControlesPersonalizados111Btec\ControlesPersonalizadosWindows\TimeLine\TimeLine\obj\Debug\TimeLine.csproj.GenerateResource.cache
+C:\Proyectos\ControlesPersonalizados111Btec\ControlesPersonalizadosWindows\TimeLine\TimeLine\obj\Debug\TimeLine.csproj.CoreCompileInputs.cache
+C:\Proyectos\ControlesPersonalizados111Btec\ControlesPersonalizadosWindows\TimeLine\TimeLine\obj\Debug\TimeLine.csproj.CopyComplete
+C:\Proyectos\ControlesPersonalizados111Btec\ControlesPersonalizadosWindows\TimeLine\TimeLine\obj\Debug\TimeLine.dll
+C:\Proyectos\ControlesPersonalizados111Btec\ControlesPersonalizadosWindows\TimeLine\TimeLine\obj\Debug\TimeLine.pdb

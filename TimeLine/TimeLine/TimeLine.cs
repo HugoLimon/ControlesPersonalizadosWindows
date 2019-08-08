@@ -338,6 +338,15 @@ namespace TimeLine
                 bunifuTransition1.TimeStep = value;
             }
         }
+        [Description("Muestra la linea representativa de la hora actual"), Category("Data")]
+        public bool RealTimeLine
+        {
+            get { return Line.Visible; }
+            set
+            {
+                Line.Visible = true;               
+            }
+        }
         [Description("Fija el MaxAnimationTime de la transición de los controles sobre el time line"), Category("Data")]
         public int MaxAnimationTime
         {
@@ -453,5 +462,10 @@ namespace TimeLine
             }
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            KeyValuePair<int, int> _kvp=CalculaPos(DateTime.Now, 10);
+            Line.Location=new Point(Convert.ToInt32(panelColumns.Width * 0.05) + _kvp.Key);
+        }
     }
 }

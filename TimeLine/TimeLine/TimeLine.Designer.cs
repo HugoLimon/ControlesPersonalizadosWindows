@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation3 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TimeLine));
             this.panelTrasero = new System.Windows.Forms.TableLayoutPanel();
             this.panelColumns = new System.Windows.Forms.TableLayoutPanel();
@@ -51,6 +51,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.bunifuTransition1 = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.Line = new Bunifu.Framework.UI.BunifuSeparator();
+            this.TimerLine = new System.Windows.Forms.Timer(this.components);
             this.panelTrasero.SuspendLayout();
             this.panelColumns.SuspendLayout();
             this.PanelRows.SuspendLayout();
@@ -330,30 +332,53 @@
             // 
             this.bunifuTransition1.AnimationType = BunifuAnimatorNS.AnimationType.Transparent;
             this.bunifuTransition1.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 1F;
-            this.bunifuTransition1.DefaultAnimation = animation1;
+            animation3.AnimateOnlyDifferences = true;
+            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
+            animation3.LeafCoeff = 0F;
+            animation3.MaxTime = 1F;
+            animation3.MinTime = 0F;
+            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
+            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
+            animation3.MosaicSize = 0;
+            animation3.Padding = new System.Windows.Forms.Padding(0);
+            animation3.RotateCoeff = 0F;
+            animation3.RotateLimit = 0F;
+            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
+            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
+            animation3.TimeCoeff = 0F;
+            animation3.TransparencyCoeff = 1F;
+            this.bunifuTransition1.DefaultAnimation = animation3;
             this.bunifuTransition1.Interval = 2;
             this.bunifuTransition1.MaxAnimationTime = 6000;
             this.bunifuTransition1.TimeStep = 0.008F;
+            // 
+            // Line
+            // 
+            this.Line.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.Line.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuTransition1.SetDecoration(this.Line, BunifuAnimatorNS.DecorationType.None);
+            this.Line.ForeColor = System.Drawing.Color.Red;
+            this.Line.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(69)))), ((int)(((byte)(0)))));
+            this.Line.LineThickness = 2;
+            this.Line.Location = new System.Drawing.Point(454, 0);
+            this.Line.Name = "Line";
+            this.Line.Size = new System.Drawing.Size(2, 479);
+            this.Line.TabIndex = 3;
+            this.Line.Transparency = 255;
+            this.Line.Vertical = true;
+            this.Line.Visible = false;
+            // 
+            // TimerLine
+            // 
+            this.TimerLine.Enabled = true;
+            this.TimerLine.Interval = 1000;
+            this.TimerLine.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // TimeLine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.Line);
             this.Controls.Add(this.panelTrasero);
             this.bunifuTransition1.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.Name = "TimeLine";
@@ -390,5 +415,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label11;
         private BunifuAnimatorNS.BunifuTransition bunifuTransition1;
+        private Bunifu.Framework.UI.BunifuSeparator Line;
+        private System.Windows.Forms.Timer TimerLine;
     }
 }
