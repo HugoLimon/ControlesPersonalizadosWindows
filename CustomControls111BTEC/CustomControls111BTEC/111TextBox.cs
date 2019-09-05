@@ -19,9 +19,9 @@ namespace CustomControls111BTEC
             InitializeComponent();
             textHolderLabel.Text = placeHolderText;
             textHolderLabel.BackColor = textBox1.BackColor = this.BackColor ;
-            
-
         }
+
+        //Creamos la propiedades del user control
         #region Propiedades
         /// <summary>
         /// Agregas el texto del PlaceHolder
@@ -133,26 +133,27 @@ namespace CustomControls111BTEC
         [Description("Establece el TextBox como contraseña"), Category("Style")]
         public bool isPassword
         {
-            get { return !textBox1.UseSystemPasswordChar; }
+            get { return textBox1.UseSystemPasswordChar; }
             set
             {
                 if (value)
                 {//Asignamos el caracter con que se mostrara la contraseña
 
-                    textBox1.UseSystemPasswordChar = false;
-                    
+                    textBox1.UseSystemPasswordChar = true;
+                    textBox1.PasswordChar = '•';
                 }
                 else
                 {
 
-                    textBox1.UseSystemPasswordChar = true;
-                    textBox1.PasswordChar = '•';
+                    textBox1.UseSystemPasswordChar = false;
+                    
                 }
             }
         }
         [Description("Obtiene y asigna el texto del textBox"), Category("Style")]
-        public string TextTB
-        {
+        
+        public override string Text
+        {  
             get { return textBox1.Text; }
             set
             {
@@ -177,15 +178,36 @@ namespace CustomControls111BTEC
             set { textBox1.Multiline = value;}
         }
 
+
+
         #endregion
+
+        //Cramos los Eventos del User Control
+        #region Eventos
+        //Creamos el evento KeyDown
+        public new event KeyPressEventHandler KeyPress
+        {
+            add { textBox1.KeyPress += value; }
+            remove { textBox1.KeyPress -= value; }
+        }
+        //Creamos el evento KeyDown
+        public new event KeyEventHandler KeyDown
+        {
+            add { textBox1.KeyDown += value; }
+            remove { textBox1.KeyDown -= value; }
+        }
+        #endregion
+
+        //Funcionalidades Internas
+        #region Funcionalidades
         private void _111TextBox_Leave(object sender, EventArgs e)
         {
-            if(textBox1.Text=="")
+            if (textBox1.Text == "")
             {
-                textHolderLabel.Visible = true  && enablePlaceHolder;
+                textHolderLabel.Visible = true && enablePlaceHolder;
                 textHolderLabel.Text = placeHolderText;
             }
-            
+
         }
 
         private void _111TextBox_Enter(object sender, EventArgs e)
@@ -211,15 +233,8 @@ namespace CustomControls111BTEC
             textHolderLabel.BackColor = this.BackColor;
 
         }
+        #endregion
 
 
-
-        private void textBox1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData== Keys.Enter)
-            {
-               e.Handled = true;
-            }
-        }
     }
 }
