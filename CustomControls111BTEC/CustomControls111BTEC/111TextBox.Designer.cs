@@ -39,21 +39,20 @@
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Multiline = true;
+            this.textBox1.Location = new System.Drawing.Point(2, 0);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 14);
+            this.textBox1.Size = new System.Drawing.Size(119, 13);
             this.textBox1.TabIndex = 0;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // textHolderLabel
             // 
-            this.textHolderLabel.AutoSize = true;
             this.textHolderLabel.BackColor = System.Drawing.Color.Transparent;
             this.textHolderLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textHolderLabel.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.textHolderLabel.Location = new System.Drawing.Point(0, 0);
+            this.textHolderLabel.Location = new System.Drawing.Point(2, 0);
             this.textHolderLabel.Name = "textHolderLabel";
-            this.textHolderLabel.Size = new System.Drawing.Size(35, 13);
+            this.textHolderLabel.Size = new System.Drawing.Size(119, 16);
             this.textHolderLabel.TabIndex = 1;
             this.textHolderLabel.Text = "label1";
             this.textHolderLabel.Click += new System.EventHandler(this.label1_Click);
@@ -73,7 +72,8 @@
             this.Controls.Add(this.textHolderLabel);
             this.Controls.Add(this.textBox1);
             this.Name = "_111TextBox";
-            this.Size = new System.Drawing.Size(121, 14);
+            this.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.Size = new System.Drawing.Size(121, 16);
             this.BackColorChanged += new System.EventHandler(this._111TextBox_BackColorChanged);
             this.ForeColorChanged += new System.EventHandler(this._111TextBox_ForeColorChanged);
             this.Enter += new System.EventHandler(this._111TextBox_Enter);

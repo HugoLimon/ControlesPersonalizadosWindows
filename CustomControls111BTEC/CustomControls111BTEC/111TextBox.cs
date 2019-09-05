@@ -18,7 +18,8 @@ namespace CustomControls111BTEC
         {
             InitializeComponent();
             textHolderLabel.Text = placeHolderText;
-            textHolderLabel.BackColor = textBox1.BackColor;
+            textHolderLabel.BackColor = textBox1.BackColor = this.BackColor ;
+            
 
         }
         #region Propiedades
@@ -74,6 +75,107 @@ namespace CustomControls111BTEC
             set { textHolderLabel.ForeColor = value; }
         }
 
+        /// <summary>
+        /// Alineación de PlaceHolder y TextBox
+        /// </summary>
+        [Description("Alinación de texto"), Category("Style")]
+        public ContentAlignment TextAling
+        {
+            get { return textHolderLabel.TextAlign; }
+            set
+            {
+                textHolderLabel.TextAlign = value; 
+                //Aplicamos el fitro para alineaciones de label para textbox, porque no son del mismo tipo las alineaciones
+                #region Alineación TextBox 
+                switch (value)
+                {
+                    //Alinaecion al centro
+                    #region Centro
+                    case ContentAlignment.BottomCenter:
+                        textBox1.TextAlign = HorizontalAlignment.Center;
+                        break;
+                    case ContentAlignment.MiddleCenter:
+                        textBox1.TextAlign = HorizontalAlignment.Center;
+                        break;
+                    case ContentAlignment.TopCenter:
+                        textBox1.TextAlign = HorizontalAlignment.Center;
+                        break;
+                    #endregion
+                    //Alinaecion al Izquierda
+                    #region Izquierda
+                    case ContentAlignment.BottomLeft:
+                        textBox1.TextAlign = HorizontalAlignment.Left;
+                        break;
+                    case ContentAlignment.MiddleLeft:
+                        textBox1.TextAlign = HorizontalAlignment.Left;
+                        break;
+                    case ContentAlignment.TopLeft:
+                        textBox1.TextAlign = HorizontalAlignment.Left;
+                        break;
+                    #endregion
+                    //Alinaecion al Derecha
+                    #region Derecha
+                    case ContentAlignment.BottomRight:
+                        textBox1.TextAlign = HorizontalAlignment.Right;
+                        break;
+                    case ContentAlignment.MiddleRight:
+                        textBox1.TextAlign = HorizontalAlignment.Right;
+                        break;
+                    case ContentAlignment.TopRight:
+                        textBox1.TextAlign = HorizontalAlignment.Right;
+                        break;
+                        #endregion
+                }
+                #endregion    
+            }
+        }
+        
+        [Description("Establece el TextBox como contraseña"), Category("Style")]
+        public bool isPassword
+        {
+            get { return !textBox1.UseSystemPasswordChar; }
+            set
+            {
+                if (value)
+                {//Asignamos el caracter con que se mostrara la contraseña
+
+                    textBox1.UseSystemPasswordChar = false;
+                    
+                }
+                else
+                {
+
+                    textBox1.UseSystemPasswordChar = true;
+                    textBox1.PasswordChar = '•';
+                }
+            }
+        }
+        [Description("Obtiene y asigna el texto del textBox"), Category("Style")]
+        public string TextTB
+        {
+            get { return textBox1.Text; }
+            set
+            {
+                //Cuando el texto es "" Mostramos nuevamente el TextHolder
+                if(value=="")
+                {
+                    textBox1.Text = value;
+                    textHolderLabel.Visible = true;
+                }
+                else
+                {
+                    textBox1.Text = value;
+                    textHolderLabel.Visible = false;
+                }
+                
+            }
+        }
+        [Description("Habilita la propiedad multilinea al textbox"), Category("Style")]
+        public bool isMultiline
+        {
+            get { return textBox1.Multiline; }
+            set { textBox1.Multiline = value;}
+        }
 
         #endregion
         private void _111TextBox_Leave(object sender, EventArgs e)
@@ -105,7 +207,19 @@ namespace CustomControls111BTEC
 
         private void _111TextBox_BackColorChanged(object sender, EventArgs e)
         {
-            
+            textBox1.BackColor = this.BackColor;
+            textHolderLabel.BackColor = this.BackColor;
+
+        }
+
+
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData== Keys.Enter)
+            {
+               e.Handled = true;
+            }
         }
     }
 }
