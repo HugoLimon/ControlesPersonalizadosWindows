@@ -139,7 +139,7 @@ namespace CustomControls111BTEC
                 if (value)
                 {//Asignamos el caracter con que se mostrara la contraseña
 
-                    textBox1.UseSystemPasswordChar = true;
+                    textBox1.UseSystemPasswordChar = true && enablePlaceHolder;
                     textBox1.PasswordChar = '•';
                 }
                 else

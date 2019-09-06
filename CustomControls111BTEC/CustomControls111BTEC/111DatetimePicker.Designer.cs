@@ -453,6 +453,7 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "_111DatetimePicker";
             this.Size = new System.Drawing.Size(206, 296);
+            this.Load += new System.EventHandler(this._111DatetimePicker_Load);
             this.tableLayoutPrincipal.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panelBar.ResumeLayout(false);

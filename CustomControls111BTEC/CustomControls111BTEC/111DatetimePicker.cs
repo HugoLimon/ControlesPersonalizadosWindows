@@ -422,5 +422,9 @@ namespace CustomControls111BTEC
             }
         }
 
+        private void _111DatetimePicker_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
