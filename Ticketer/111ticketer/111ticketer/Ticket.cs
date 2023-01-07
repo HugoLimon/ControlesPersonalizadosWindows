@@ -21,10 +21,10 @@ namespace _111ticketer
         //maximo de caracteres que acepta la kimpresora
         int cortar; // la variable cortar cortará la cadena cuando rebace el maxioa
         int maxCarFont20 = 13;
-        int maxCarFont15 = 23;
-        int maxCarFont12 = 28;
-        int maxCarFont10 = 34;
-        int maxCarFont8 = 41;
+        int maxCarFont15 = 20;
+        int maxCarFont12 = 26;
+        int maxCarFont10 = 32;
+        int maxCarFont8 = 39;
         public Ticket(int _maxTitleChars, int _maxSubtitleChars, int _maxContentChars, int _maxFootersChars)
         {
              maxCarFont15 = _maxTitleChars;
@@ -593,7 +593,7 @@ namespace _111ticketer
             printDocument.PrinterSettings.DefaultPageSettings.Margins.Top = 0;
             printDocument.PrinterSettings.DefaultPageSettings.Margins.Right = 0;
             printDocument.PrinterSettings.DefaultPageSettings.Margins.Bottom = 0;
-            printDocument.DefaultPageSettings.PaperSize = new PaperSize("A4", 50, 10);
+            printDocument.DefaultPageSettings.PaperSize = new PaperSize("Custom", 800, 3000);
             printDocument.PrintPage += new PrintPageEventHandler(printDocument_PrintPage);
             try
             {
